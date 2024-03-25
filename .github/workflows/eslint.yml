@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install NVM
-        run: curl -o- raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
       - name: Install node
         env:
           NODE_VERSION: 21.2.0
