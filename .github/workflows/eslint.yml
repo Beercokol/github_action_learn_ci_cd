@@ -1,0 +1,25 @@
+name: eslint
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install NVM
+      - uses: actions/checkout@2
+        run: curl -o- raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
+      - name: Install node
+        env:
+          NODE_VERSION: 21.2.0
+        run: nvm install $NODE_VERSION
+      - name: Install Deps
+        run: npm i
+      - name: Run ESLint  and check code
+        run: npm run lint
+
+    uses:
+
