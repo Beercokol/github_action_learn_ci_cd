@@ -10,12 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install NVM
-        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-      - name: Install node
-        env:
-          NODE_VERSION: 21.2.0
-        run: nvm install $NODE_VERSION
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
       - name: Install Deps
         run: npm i
       - name: Run ESLint  and check code
